@@ -10,4 +10,11 @@ router.get('/adminapi.json', (req, res, next) => {
     }).catch(next);
 });
 
+router.post('/adminapi.json', (req, res, next) => {
+    AdminAPI.create(req.body).then(function (email) {
+        res.send(email);
+    }).catch(next);
+});
+
+
 module.exports =  router;

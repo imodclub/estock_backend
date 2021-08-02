@@ -10,11 +10,22 @@ router.get('/adminapi.json', (req, res, next) => {
     }).catch(next);
 });
 
-router.post('/adminapi.json', (req, res, next) => {
+router.post('/adminapi', (req, res, next) => {
     AdminAPI.create(req.body).then(function (email) {
         res.send(email);
     }).catch(next);
 });
 
+router.put('/adminapi/:id', (req, res, next) => {
+    AdminAPI.findOneAndUpdate({ _id: req.params.id }).then(function (email) {
+        res.send(email)
+    });
+});
+
+router.delete("/adminapi/:id", (req, res, next) => {
+  AdminAPI.findOneAndDelete({ _id: req.params.id }).then(function (email) {
+    res.send(email);
+  });
+});
 
 module.exports =  router;

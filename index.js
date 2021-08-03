@@ -18,6 +18,8 @@ mongoose.Promise = global.Promise;
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+
 
 const adminapi = require('./api/routers/adminapi');
 
